@@ -2,17 +2,22 @@
 
 use Illuminate\Http\Request;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
+/**
+ *
+ * place the api route around a version prefix
+ *
+ */
+$this->prefix('v1')->group(function (){
+    /**
+     * Place th epublic facing api routes here.
+     */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+
+    $this->middleware('auth:api')->group(function(){
+        /**
+         * Place the protected api routes here.
+         */
+
+
+    });
 });

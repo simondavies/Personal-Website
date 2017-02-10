@@ -8,10 +8,10 @@
  *
  */
 
-$this->get('', 'Auth\LoginController@showLoginForm')->name('login');
-$this->get('login', 'Auth\LoginController@showLoginForm');
-$this->post('login', 'Auth\LoginController@login')->name('login.post');
-$this->post('logout', 'Auth\LoginController@logout')->name('logout');
+$this->name('login')->get('')->uses('LoginController@showLoginForm');
+$this->get('login')->uses('LoginController@showLoginForm');
+$this->name('login.post')->post('login')->uses('LoginController@login');
+$this->name('logout')->post('logout')->uses('LoginController@logout');
 
 /**
  * Auth protectded routes
