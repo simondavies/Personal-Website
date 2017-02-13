@@ -1,4 +1,4 @@
-@extends('site.templates.base')
+@extends('site.templates.landing')
 @section('content')
 
     landing page

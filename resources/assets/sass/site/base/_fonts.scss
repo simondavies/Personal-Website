@@ -1,0 +1,10 @@
+/**
+ * Main fonts
+ */
+@font-face {
+    font-family: 'gotham_bookregular';
+    src:  url('/css/fonts/gotham_book-webfont.woff2') format('woff2'),
+        url('/css/fonts/gotham_book-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}

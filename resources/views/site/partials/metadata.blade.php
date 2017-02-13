@@ -14,7 +14,7 @@
 <meta itemprop="name" content="{{config('site.title')}}">
 <meta itemprop="image" content="{{config('site.google.image')}}">
 
-<link rel="canonical" href="">
+<link rel="canonical" href="{{config('site.url')}}">
 
 <meta name="robots" content="index,follow,noodp">
 <meta name="googlebot" content="index,follow">
