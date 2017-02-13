@@ -19,6 +19,7 @@ class Pages extends Controller
 
     public function index()
     {
-        dd('pages index');
+
+        return view('site.pages.landing');
     }
 }
