@@ -47,10 +47,10 @@
 <link rel="icon" href="/imgs/icons/favicon-192.png" sizes="192x192" type="image/png">
 
 <script type="application/ld+json">
-{
+[{
     "@context": "http://schema.org",
     "@type": "WebSite",
-    "url": "{{config('site.ulr')}}",
+    "url": "{{config('site.url')}}",
     "name": "{{config('site.name')}}",
     "author": {
         "@type": "Person",
@@ -62,9 +62,18 @@
         "{{config('site.twitter.url')}}",
         "{{config('site.facebook.url')}}",
         "{{config('site.google.url')}}",
-        "{{config('site.youtube.url')}}"
+        "{{config('site.youtube.url')}}",
+        "{{config('site.stackoverflow.url')}}"
     ]
-}
+},
+{
+    "@context" : "http://schema.org",
+    "@type" : "WebPage",
+    "headline" :"{{config('site.name')}}",
+    "description" :"{{config('site.description')}}",
+    "url" :"{{config('site.url')}}",
+    "keywords" : "{{config('site.keywords')}}"
+}]
 </script>
 @if (App::environment('live')) {
 <script>

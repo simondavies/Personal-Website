@@ -39,5 +39,8 @@ return [
             'verification_code' => 'D6718317FB252C6F78B9B469CE5C4231'
         ]
     ],
+    'stackoverflow' => [
+        'url' => 'http://stackoverflow.com/users/904045/simon-davies'
+    ]
 
 ];
