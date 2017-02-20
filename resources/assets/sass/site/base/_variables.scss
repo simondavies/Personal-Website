@@ -13,11 +13,12 @@ $grey : #d9d9d9 !default;
 
 
 $body-bg : black;
+$dark : #111;
 
 //-- Globals
-$text-colour : #555 !default;
-$link-colour : #555 !default;
-$link-hover-colour : lighten(#555, 5%) !default;
+$text-colour : $dark !default;
+$link-colour : $dark !default;
+$link-hover-colour : lighten($dark, 5%) !default;
 
 
 
@@ -27,7 +28,7 @@ $link-hover-colour : lighten(#555, 5%) !default;
 
  $font-family : 'gotham_bookregular' , Helvetica, Arial, sans-serif !default;
 
- $font-size : 14px !default;
+ $font-size : 14 !default;
  $font-size-large : ceil(($font-size * 1.25)) !default; // ~18px
  $font-size-small : ceil(($font-size * 0.85)) !default; // ~12px
 

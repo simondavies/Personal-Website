@@ -2,7 +2,10 @@
 @section('content')
     <main class="landing-wrapper">
         <div class="landing-content">
-
+            <div class="site-title-wrapper">
+                <h1>Simon Davies</h1>
+                <h2>Web Developer/Designer</h2>
+            </div>
         </div><!-- eo:landing-content -->
         <div class="landing-overlay"></div><!-- eo:landing-overlay -->
         <div class="background-wrapper"

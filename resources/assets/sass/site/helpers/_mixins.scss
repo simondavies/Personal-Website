@@ -1,0 +1,33 @@
+
+
+@mixin font-size($sizeValue: 16) {
+  $remSize: $sizeValue / 16;
+  font-size: $sizeValue + px;
+  font-size: ($remSize * 1rem);
+}
+@mixin line-height($sizeValue: 16) {
+  $remSize: $sizeValue / 16;
+  line-height: $sizeValue + px;
+  line-height: ($remSize * 1rem);
+}
+
+@mixin font-size-small() {
+  @include font-size(12);
+  @include line-height(16);
+}
+
+@mixin font-size-regular() {
+  @include font-size(16);
+  @include line-height(20);
+}
+
+
+@mixin font-size-large() {
+  @include font-size(24);
+  @include line-height(28);
+}
+
+@mixin font-size-xLarge() {
+  @include font-size(32);
+  @include line-height(38);
+}

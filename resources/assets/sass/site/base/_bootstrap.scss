@@ -1,8 +1,10 @@
 //-- import base reset
 @import "../../vendor/normalize";
-//-- import fonts
-@import "fonts";
+//-- inport mixins
+@import "../helpers/mixins";
 //-- inport variables
 @import "variables";
+//-- import fonts
+@import "fonts";
 //-- import base setting
 @import "begin";
