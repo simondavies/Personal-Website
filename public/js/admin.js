@@ -1771,6 +1771,8 @@ module.exports = function spread(callback) {
 
 //window.$ = window.jQuery = require('jquery');
 
+window.Laravel = { csrfToken: document.querySelector('meta[name="_token"]').getAttribute('content') };
+
 window.Vue = __webpack_require__(27);
 
 window.axios = __webpack_require__(8);

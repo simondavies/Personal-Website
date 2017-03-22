@@ -48,11 +48,12 @@
         top: -4px;
         @include font-size(30);
         @include line-height(30);
+        font-weight: 300;
         color: rgba($orange, .5);
         cursor: pointer;
         transition: color $transitionTime;
         &:hover {
-            color: white;
+            color: rgba($orange, .9);
         }
     }
 }
