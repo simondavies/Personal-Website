@@ -1,0 +1,58 @@
+/**
+ * Cookies Pop Up message
+ */
+
+.cookies-message-wrapper {
+    margin: 0 auto;
+    padding: 0;
+    position: fixed;
+    top: 10px;
+    right: 0;
+    z-index: 5000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    max-width: 340px;
+    border-radius: 4px 0 0 4px;
+    overflow: hidden;
+    background-color: rgba($text-colour, .6);
+    box-shadow: 0 0 10px rgba($text-colour, .9);
+    .cookies-content {
+        margin: 0 auto;
+        padding: 10px 20px;
+        flex: 1 1 86%;
+        color: rgba(white, .8);
+        text-align: left;
+        @include font-size(12);
+        @include line-height(18);
+        a:link,
+        a:active,
+        a:visited {
+            font-size: inherit;
+            line-height: inherit;
+            color: $orange;
+        }
+        a:hover,
+        a:hover:visited {
+            color: white;
+        }
+    }
+    button {
+        margin: 0;
+        padding: 0;
+        flex: 1 1 14%;
+        border: none;
+        background: none;
+        position: relative;
+        top: -4px;
+        @include font-size(30);
+        @include line-height(30);
+        color: rgba($orange, .5);
+        cursor: pointer;
+        transition: color $transitionTime;
+        &:hover {
+            color: white;
+        }
+    }
+}

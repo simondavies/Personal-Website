@@ -4,10 +4,24 @@
  *
  */
 
-*, html, body {
+*,
+html,
+body {
     box-sizing: border-box;
 }
 
 body {
     background: $body-bg;
 }
+
+a:link,
+a:active,
+a:visited {
+    font-size: inherit;
+    line-height: inherit;
+    text-decoration: none;
+    transition: color $transitionTime, background $transitionTime;
+}
+
+a:hover,
+a:hover:visited {}

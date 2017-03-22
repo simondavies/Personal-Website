@@ -1769,8 +1769,7 @@ module.exports = function spread(callback) {
 /* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
-window.$ = window.jQuery = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"jquery\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+//window.$ = window.jQuery = require('jquery');
 
 window.Vue = __webpack_require__(27);
 
