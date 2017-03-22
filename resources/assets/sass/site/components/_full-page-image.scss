@@ -8,9 +8,6 @@
     width: 100vw;
     max-width: 100%;
     .landing-content {
-        position: absolute;
-        //left: 50px;
-        //bottom: 30px;
         z-index: 8;
         .site-title-wrapper {
             margin: 0 auto;
@@ -47,6 +44,7 @@
     .background-wrapper {
         position: absolute;
         top: 0;
+        left: 0;
         z-index: 0;
         height: 100vh;
         width: 100vw;
