@@ -24,4 +24,6 @@ a:visited {
 }
 
 a:hover,
-a:hover:visited {}
+a:hover:visited {
+    color: inherit;
+}

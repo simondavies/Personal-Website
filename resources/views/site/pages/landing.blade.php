@@ -21,7 +21,5 @@
         </div><!-- eo:landing-wrapper -->
     </main><!-- eo:landing-wrapper -->
 
-    <cookies-popup 
-        message="I use cookies on this site. Carry on surfing if you're happy with this, or visit my cookies for more details.">
-    </cookies-popup>
+    <cookies-popup></cookies-popup>
 @stop

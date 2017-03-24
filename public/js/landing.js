@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 36);
+/******/ 	return __webpack_require__(__webpack_require__.s = 45);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -11083,7 +11083,7 @@ module.exports = g;
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bootstrap__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bootstrap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__bootstrap__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_cookies_popup__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_cookies_popup__ = __webpack_require__(38);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_cookies_popup___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_cookies_popup__);
 
 
@@ -11136,23 +11136,128 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 35 */,
+/* 35 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_helpers__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_helpers___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__services_helpers__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: 'coookies-pop-up',
+    data: function data() {
+        return {
+            isActive: false,
+            cookie_name: 'siteCookiesMessage',
+            cookie_value: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__services_helpers__["generateGUID"])()
+        };
+    },
+    mounted: function mounted() {
+
+        //-- check users browser for our set cookie
+        var cookieSet = this.checkForCookie();
+
+        //-- if no cookie has been set lets set one and activate message
+        if (!cookieSet) {
+
+            this.setCookie(this.cookie_value, 30);
+
+            this.displayCookiesMessage();
+        }
+    },
+
+    methods: {
+        /**
+         * display the cookie message on the browser
+         */
+        displayCookiesMessage: function displayCookiesMessage() {
+
+            this.isActive = true;
+        },
+
+        /**
+         * close and remove the cookies message
+         */
+        closeCookiesMessage: function closeCookiesMessage(evt) {
+
+            this.isActive = false;
+        },
+
+        /**
+         * check to see if the users browser has our cookie
+         */
+        checkForCookie: function checkForCookie() {
+
+            this.cookie_name = this.cookie_name + "=";
+
+            var cookies = document.cookie.split(';');
+
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i];
+                while (cookie.charAt(0) == ' ') {
+                    cookie = cookie.substring(1);
+                }
+                if (cookie.indexOf(this.cookie_name) == 0) {
+                    return cookie.substring(this.cookie_name.length, cookie.length);
+                }
+            }
+
+            return false;
+        },
+
+        /**
+         * set our cookies expiry date
+         */
+        setCookieExpireDate: function setCookieExpireDate() {
+
+            var date = new Date();
+
+            date.setTime(date.getTime() + this.days_to_expire * 24 * 60 * 60 * 1000);
+
+            var expires = "expires=" + date.toUTCString();
+        },
+
+        /**
+         * completley delete the entire cookie
+         */
+        setCookie: function setCookie(value, days_to_expire) {
+            var cookie_value = value,
+                cookie_expires = this.setCookieExpireDate();
+
+            document.cookie = this.cookie_name + "=" + cookie_value + "; " + days_to_expire;
+        },
+
+        /**
+         * completley delete the entire cookie
+         */
+        removeCookie: function removeCookie() {
+
+            document.cookie = this.cookie_name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+        }
+    }
+});
+
+/***/ }),
 /* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(30);
-__webpack_require__(33);
-__webpack_require__(34);
-__webpack_require__(31);
-module.exports = __webpack_require__(32);
-
+exports = module.exports = __webpack_require__(37)();
+exports.push([module.i, "\n.cookies-message-wrapper[data-v-255063ef] {\n  margin: 0 auto;\n  padding: 0;\n  position: fixed;\n  top: 10px;\n  right: 0;\n  z-index: 5000;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  width: auto;\n  max-width: 340px;\n  border-radius: 4px 0 0 4px;\n  overflow: hidden;\n  background-color: rgba(17, 17, 17, 0.6);\n  box-shadow: 0 0 10px rgba(17, 17, 17, 0.9);\n  opacity: 1;\n}\n.cookies-message-wrapper.fade-enter-active[data-v-255063ef] {\n    -webkit-transition: opacity 1000ms 1s, right 600ms 1s;\n    transition: opacity 1000ms 1s, right 600ms 1s;\n}\n.cookies-message-wrapper.fade-leave-active[data-v-255063ef] {\n    -webkit-transition: opacity 600ms, right 600ms;\n    transition: opacity 600ms, right 600ms;\n}\n.cookies-message-wrapper.fade-enter[data-v-255063ef], .cookies-message-wrapper.fade-leave-to[data-v-255063ef] {\n    opacity: 0;\n    right: -360px;\n}\n.cookies-message-wrapper .cookies-content[data-v-255063ef] {\n    margin: 0 auto;\n    padding: 10px 20px;\n    -webkit-box-flex: 1;\n        -ms-flex: 1 1 86%;\n            flex: 1 1 86%;\n    color: rgba(255, 255, 255, 0.8);\n    text-align: left;\n    font-size: 12px;\n    line-height: 18px;\n}\n.cookies-message-wrapper .cookies-content a[data-v-255063ef]:link,\n    .cookies-message-wrapper .cookies-content a[data-v-255063ef]:active,\n    .cookies-message-wrapper .cookies-content a[data-v-255063ef]:visited {\n      font-size: inherit;\n      line-height: inherit;\n      color: #f27032;\n}\n.cookies-message-wrapper .cookies-content a[data-v-255063ef]:hover,\n    .cookies-message-wrapper .cookies-content a[data-v-255063ef]:hover:visited {\n      color: white;\n}\n.cookies-message-wrapper button[data-v-255063ef] {\n    margin: 0;\n    padding: 0;\n    -webkit-box-flex: 1;\n        -ms-flex: 1 1 14%;\n            flex: 1 1 14%;\n    border: none;\n    background: none;\n    position: relative;\n    top: -4px;\n    font-size: 30px;\n    line-height: 30px;\n    font-weight: 300;\n    color: rgba(242, 112, 50, 0.5);\n    cursor: pointer;\n    -webkit-transition: color 600ms;\n    transition: color 600ms;\n}\n.cookies-message-wrapper button[data-v-255063ef]:hover {\n      color: rgba(242, 112, 50, 0.9);\n}\n", ""]);
 
 /***/ }),
-/* 37 */,
-/* 38 */,
-/* 39 */,
-/* 40 */,
-/* 41 */
+/* 37 */
 /***/ (function(module, exports) {
 
 /*
@@ -11208,19 +11313,18 @@ module.exports = function() {
 
 
 /***/ }),
-/* 42 */,
-/* 43 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(52)
+__webpack_require__(41)
 
-var Component = __webpack_require__(44)(
+var Component = __webpack_require__(39)(
   /* script */
-  __webpack_require__(45),
+  __webpack_require__(35),
   /* template */
-  __webpack_require__(47),
+  __webpack_require__(40),
   /* scopeId */
   "data-v-255063ef",
   /* cssModules */
@@ -11247,7 +11351,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 44 */
+/* 39 */
 /***/ (function(module, exports) {
 
 // this module is a runtime utility for cleaner component module output and will
@@ -11304,72 +11408,38 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 45 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    props: {
-        message: { required: true }
-    },
-    created: function created() {
-        console.info('cookies created');
-        //-- lets check user does not already have the cookie, if yes do nothing...
-        this.checkForCookie();
-        //-- no cookie set, lets create it and set it
-        this.setCookie();
-        //-- once set lets now display the cookie once mounted
-        this.createCookie();
-    },
-    mounted: function mounted() {
-        console.info('cookies mounted');
-    },
-
-    methods: {
-        closeCookie: function closeCookie(evt) {
-            console.info('close me');
-        },
-        checkForCookie: function checkForCookie() {
-            console.info('check cookie');
-        },
-        setCookie: function setCookie() {
-            console.info('set cookie');
-        },
-        createCookie: function createCookie() {
-            console.info('create and display');
-        }
-    }
-});
-
-/***/ }),
-/* 46 */,
-/* 47 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
+  return _c('transition', {
+    attrs: {
+      "name": "fade"
+    }
+  }, [_c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.isActive),
+      expression: "isActive"
+    }],
     staticClass: "cookies-message-wrapper"
   }, [_c('div', {
     staticClass: "cookies-content"
-  }, [_vm._v(_vm._s(_vm.message))]), _vm._v(" "), _c('button', {
+  }, [_vm._v("I use cookies on this site. Carry on surfing if you're happy with this, or visit my cookies page for "), _c('a', {
+    attrs: {
+      "href": "/cookies"
+    }
+  }, [_vm._v("more details")]), _vm._v(".")]), _vm._v(" "), _c('button', {
     attrs: {
       "id": "close-cookie",
       "aria-label": "Close",
       "aria-hidden": "true"
     },
     on: {
-      "click": _vm.closeCookie
+      "click": _vm.closeCookiesMessage
     }
-  }, [_vm._v("×")])])
+  }, [_vm._v("×")])])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -11380,8 +11450,33 @@ if (false) {
 }
 
 /***/ }),
-/* 48 */,
-/* 49 */
+/* 41 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(36);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(42)("68616eb0", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-255063ef\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./cookies-popup.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-255063ef\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./cookies-popup.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -11400,7 +11495,7 @@ if (typeof DEBUG !== 'undefined' && DEBUG) {
   ) }
 }
 
-var listToStyles = __webpack_require__(50)
+var listToStyles = __webpack_require__(43)
 
 /*
 type StyleObject = {
@@ -11602,7 +11697,7 @@ function applyToTag (styleElement, obj) {
 
 
 /***/ }),
-/* 50 */
+/* 43 */
 /***/ (function(module, exports) {
 
 /**
@@ -11635,37 +11730,45 @@ module.exports = function listToStyles (parentId, list) {
 
 
 /***/ }),
-/* 51 */
+/* 44 */,
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(41)();
-exports.push([module.i, "\n.cookies-message-wrapper[data-v-255063ef] {\n  margin: 0 auto;\n  padding: 0;\n  position: fixed;\n  top: 10px;\n  right: 0;\n  z-index: 5000;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  width: auto;\n  max-width: 340px;\n  border-radius: 4px 0 0 4px;\n  overflow: hidden;\n  background-color: rgba(17, 17, 17, 0.6);\n  box-shadow: 0 0 10px rgba(17, 17, 17, 0.9);\n}\n.cookies-message-wrapper .cookies-content[data-v-255063ef] {\n    margin: 0 auto;\n    padding: 10px 20px;\n    -webkit-box-flex: 1;\n        -ms-flex: 1 1 86%;\n            flex: 1 1 86%;\n    color: rgba(255, 255, 255, 0.8);\n    text-align: left;\n    font-size: 12px;\n    line-height: 18px;\n}\n.cookies-message-wrapper .cookies-content a[data-v-255063ef]:link,\n    .cookies-message-wrapper .cookies-content a[data-v-255063ef]:active,\n    .cookies-message-wrapper .cookies-content a[data-v-255063ef]:visited {\n      font-size: inherit;\n      line-height: inherit;\n      color: #f27032;\n}\n.cookies-message-wrapper .cookies-content a[data-v-255063ef]:hover,\n    .cookies-message-wrapper .cookies-content a[data-v-255063ef]:hover:visited {\n      color: white;\n}\n.cookies-message-wrapper button[data-v-255063ef] {\n    margin: 0;\n    padding: 0;\n    -webkit-box-flex: 1;\n        -ms-flex: 1 1 14%;\n            flex: 1 1 14%;\n    border: none;\n    background: none;\n    position: relative;\n    top: -4px;\n    font-size: 30px;\n    line-height: 30px;\n    font-weight: 300;\n    color: rgba(242, 112, 50, 0.5);\n    cursor: pointer;\n    -webkit-transition: color 600ms;\n    transition: color 600ms;\n}\n.cookies-message-wrapper button[data-v-255063ef]:hover {\n      color: rgba(242, 112, 50, 0.9);\n}\n", ""]);
+__webpack_require__(30);
+__webpack_require__(33);
+__webpack_require__(34);
+__webpack_require__(31);
+module.exports = __webpack_require__(32);
+
 
 /***/ }),
-/* 52 */
-/***/ (function(module, exports, __webpack_require__) {
+/* 46 */,
+/* 47 */,
+/* 48 */,
+/* 49 */,
+/* 50 */,
+/* 51 */
+/***/ (function(module, exports) {
 
-// style-loader: Adds some css to the DOM by adding a <style> tag
+/**
+ * Generate a GUID number
+ */
+module.exports.generateGUID = function () {
 
-// load the styles
-var content = __webpack_require__(51);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(49)("68616eb0", content, false);
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-255063ef\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./cookies-popup.vue", function() {
-     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-255063ef\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./cookies-popup.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
+    var dt = new Date().getTime();
+
+    if (window.performance && typeof window.performance.now === "function") {
+        dt += performance.now();
+    }
+
+    var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+        var r = (dt + Math.random() * 16) % 16 | 0;
+        dt = Math.floor(dt / 16);
+        return (c == 'x' ? r : r & 0x3 | 0x8).toString(16);
+    });
+
+    return uuid;
+};
 
 /***/ })
 /******/ ]);

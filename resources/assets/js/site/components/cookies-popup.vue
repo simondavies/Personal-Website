@@ -1,41 +1,107 @@
 <template>
-    <div class="cookies-message-wrapper">
-        <div class="cookies-content">{{message}}</div>
-        <button id="close-cookie" aria-label="Close" aria-hidden="true" @click="closeCookie">&times;</button>
-    </div>
+    <transition name="fade">
+        <div class="cookies-message-wrapper" v-show="isActive">
+            <div class="cookies-content">I use cookies on this site. Carry on surfing if you're happy with this, or visit my cookies page for <a class="" href="/cookies">more details</a>.</div>
+            <button id="close-cookie" aria-label="Close" aria-hidden="true" @click="closeCookiesMessage">&times;</button>
+        </div>
+    </transition>
 </template>
 
 <script>
+    import {generateGUID} from '../services/helpers';
+
     export default {
-        props : {
-             message : {required : true},
-        },
-        created(){
-            console.info('cookies created');
-            //-- lets check user does not already have the cookie, if yes do nothing...
-            this.checkForCookie();
-            //-- no cookie set, lets create it and set it
-            this.setCookie();
-            //-- once set lets now display the cookie once mounted
-            this.createCookie();
+        name : 'coookies-pop-up',
+        data() {
+            return {
+                isActive : false,
+                cookie_name : 'siteCookiesMessage',
+                cookie_value : generateGUID()
+            }
         },
         mounted() {
-            console.info('cookies mounted');
             
+            //-- check users browser for our set cookie
+            let cookieSet = this.checkForCookie();
+            
+            //-- if no cookie has been set lets set one and activate message
+            if(!cookieSet) {
+                
+                this.setCookie(this.cookie_value, 30);
+                
+                this.displayCookiesMessage();
+            }
+
         },
         methods : {
-            closeCookie(evt){
-                console.info('close me');
+            /**
+             * display the cookie message on the browser
+             */
+            displayCookiesMessage(){
+
+                this.isActive = true;
+            
             },
+            /**
+             * close and remove the cookies message
+             */
+            closeCookiesMessage(evt){
+
+                this.isActive = false;
+
+            },
+            /**
+             * check to see if the users browser has our cookie
+             */
             checkForCookie(){
-                console.info('check cookie');
+
+                this.cookie_name = this.cookie_name + "=";
+
+                let cookies = document.cookie.split(';');
+
+                for(var i = 0; i <cookies.length; i++) {
+                    let cookie = cookies[i];
+                    while (cookie.charAt(0)==' ') {
+                        cookie = cookie.substring(1);
+                    }
+                    if (cookie.indexOf(this.cookie_name) == 0) {
+                        return cookie.substring(this.cookie_name.length,cookie.length);
+                    }
+                }
+                
+                return false;
+
             },
-            setCookie(){
-                console.info('set cookie');
+            /**
+             * set our cookies expiry date
+             */
+            setCookieExpireDate(){
+
+                let date = new Date();
+                
+                date.setTime(date.getTime() + (this.days_to_expire*24*60*60*1000));
+
+                var expires = "expires="+ date.toUTCString();
+
             },
-            createCookie() {
-                console.info('create and display');
-            }
+            /**
+             * completley delete the entire cookie
+             */
+            setCookie(value, days_to_expire) {
+                let cookie_value = value,
+                    cookie_expires = this.setCookieExpireDate();
+
+                document.cookie = this.cookie_name + "=" + cookie_value + "; " + days_to_expire;
+
+            },
+            /**
+             * completley delete the entire cookie
+             */
+            removeCookie(){
+
+                document.cookie = this.cookie_name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;'
+
+            },
         }
     }
 </script>
@@ -57,6 +123,18 @@
         overflow: hidden;
         background-color: rgba(17,17,17, .6);
         box-shadow: 0 0 10px rgba(17,17,17, .9);
+        opacity : 1;
+        &.fade-enter-active{
+            transition: opacity 1000ms 1s, right 600ms 1s;
+        }
+        &.fade-leave-active {
+            transition: opacity 600ms, right 600ms;
+        }
+        &.fade-enter, 
+        &.fade-leave-to {
+            opacity: 0;
+            right: -360px
+        }
         .cookies-content {
             margin: 0 auto;
             padding: 10px 20px;
