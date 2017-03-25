@@ -5,6 +5,7 @@
         <link rel="stylesheet" href="/css/landing.css">
     </head>
     <body itemscope="" itemtype="http://schema.org/WebPage">
+        @include('site.partials.google-tag-code')
         <div id="page-app" class="site-wrapper">
             @yield('content')
         </div>
