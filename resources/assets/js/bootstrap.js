@@ -1,5 +1,7 @@
 //window.$ = window.jQuery = require('jquery');
 
+window.Laravel = { csrfToken: document.querySelector('meta[name="_token"]').getAttribute('content') };
+
 window.Vue = require('vue');
 
 window.axios = require('axios');

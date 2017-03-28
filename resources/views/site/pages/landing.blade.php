@@ -21,10 +21,5 @@
         </div><!-- eo:landing-wrapper -->
     </main><!-- eo:landing-wrapper -->
 
-    <div class="cookies-message-wrapper">
-        <div class="cookies-content">
-            I use cookies on this site. Carry on surfing if you're happy with this, or visit <a href="/cookies">my cookies</a> for more details.
-        </div>
-        <button id="close-cookie" aria-label="Close" aria-hidden="true">&times;</button>
-    </div>
+    <cookies-popup></cookies-popup>
 @stop
