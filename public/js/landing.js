@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 45);
+/******/ 	return __webpack_require__(__webpack_require__.s = 46);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -11083,7 +11083,7 @@ module.exports = g;
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bootstrap__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bootstrap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__bootstrap__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_cookies_popup__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_cookies_popup__ = __webpack_require__(39);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_cookies_popup___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_cookies_popup__);
 
 
@@ -11141,7 +11141,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_helpers__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_helpers__ = __webpack_require__(36);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_helpers___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__services_helpers__);
 //
 //
@@ -11251,13 +11251,37 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 /* 36 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-exports = module.exports = __webpack_require__(37)();
-exports.push([module.i, "\n.cookies-message-wrapper[data-v-255063ef] {\n  margin: 0 auto;\n  padding: 0;\n  position: fixed;\n  top: 10px;\n  right: 0;\n  z-index: 5000;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  width: auto;\n  max-width: 340px;\n  border-radius: 4px 0 0 4px;\n  overflow: hidden;\n  background-color: rgba(17, 17, 17, 0.6);\n  box-shadow: 0 0 10px rgba(17, 17, 17, 0.9);\n  opacity: 1;\n}\n.cookies-message-wrapper.fade-enter-active[data-v-255063ef] {\n    -webkit-transition: opacity 1000ms 1s, right 600ms 1s;\n    transition: opacity 1000ms 1s, right 600ms 1s;\n}\n.cookies-message-wrapper.fade-leave-active[data-v-255063ef] {\n    -webkit-transition: opacity 600ms, right 600ms;\n    transition: opacity 600ms, right 600ms;\n}\n.cookies-message-wrapper.fade-enter[data-v-255063ef], .cookies-message-wrapper.fade-leave-to[data-v-255063ef] {\n    opacity: 0;\n    right: -360px;\n}\n.cookies-message-wrapper .cookies-content[data-v-255063ef] {\n    margin: 0 auto;\n    padding: 10px 20px;\n    -webkit-box-flex: 1;\n        -ms-flex: 1 1 86%;\n            flex: 1 1 86%;\n    color: rgba(255, 255, 255, 0.8);\n    text-align: left;\n    font-size: 12px;\n    line-height: 18px;\n}\n.cookies-message-wrapper .cookies-content a[data-v-255063ef]:link,\n    .cookies-message-wrapper .cookies-content a[data-v-255063ef]:active,\n    .cookies-message-wrapper .cookies-content a[data-v-255063ef]:visited {\n      font-size: inherit;\n      line-height: inherit;\n      color: #f27032;\n}\n.cookies-message-wrapper .cookies-content a[data-v-255063ef]:hover,\n    .cookies-message-wrapper .cookies-content a[data-v-255063ef]:hover:visited {\n      color: white;\n}\n.cookies-message-wrapper button[data-v-255063ef] {\n    margin: 0;\n    padding: 0;\n    -webkit-box-flex: 1;\n        -ms-flex: 1 1 14%;\n            flex: 1 1 14%;\n    border: none;\n    background: none;\n    position: relative;\n    top: -4px;\n    font-size: 30px;\n    line-height: 30px;\n    font-weight: 300;\n    color: rgba(242, 112, 50, 0.5);\n    cursor: pointer;\n    -webkit-transition: color 600ms;\n    transition: color 600ms;\n}\n.cookies-message-wrapper button[data-v-255063ef]:hover {\n      color: rgba(242, 112, 50, 0.9);\n}\n", ""]);
+/**
+ * Generate a GUID number
+ */
+module.exports.generateGUID = function () {
+
+    var dt = new Date().getTime();
+
+    if (window.performance && typeof window.performance.now === "function") {
+        dt += performance.now();
+    }
+
+    var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+        var r = (dt + Math.random() * 16) % 16 | 0;
+        dt = Math.floor(dt / 16);
+        return (c == 'x' ? r : r & 0x3 | 0x8).toString(16);
+    });
+
+    return uuid;
+};
 
 /***/ }),
 /* 37 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(38)();
+exports.push([module.i, "\n.cookies-message-wrapper[data-v-255063ef] {\n  margin: 0 auto;\n  padding: 0;\n  position: fixed;\n  top: 10px;\n  right: 0;\n  z-index: 5000;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  width: auto;\n  max-width: 340px;\n  border-radius: 4px 0 0 4px;\n  overflow: hidden;\n  background-color: rgba(17, 17, 17, 0.6);\n  box-shadow: 0 0 10px rgba(17, 17, 17, 0.9);\n  opacity: 1;\n}\n.cookies-message-wrapper.fade-enter-active[data-v-255063ef] {\n    -webkit-transition: opacity 1000ms 1s, right 600ms 1s;\n    transition: opacity 1000ms 1s, right 600ms 1s;\n}\n.cookies-message-wrapper.fade-leave-active[data-v-255063ef] {\n    -webkit-transition: opacity 600ms, right 600ms;\n    transition: opacity 600ms, right 600ms;\n}\n.cookies-message-wrapper.fade-enter[data-v-255063ef], .cookies-message-wrapper.fade-leave-to[data-v-255063ef] {\n    opacity: 0;\n    right: -360px;\n}\n.cookies-message-wrapper .cookies-content[data-v-255063ef] {\n    margin: 0 auto;\n    padding: 10px 20px;\n    -webkit-box-flex: 1;\n        -ms-flex: 1 1 86%;\n            flex: 1 1 86%;\n    color: rgba(255, 255, 255, 0.8);\n    text-align: left;\n    font-size: 12px;\n    line-height: 18px;\n}\n.cookies-message-wrapper .cookies-content a[data-v-255063ef]:link,\n    .cookies-message-wrapper .cookies-content a[data-v-255063ef]:active,\n    .cookies-message-wrapper .cookies-content a[data-v-255063ef]:visited {\n      font-size: inherit;\n      line-height: inherit;\n      color: #f27032;\n}\n.cookies-message-wrapper .cookies-content a[data-v-255063ef]:hover,\n    .cookies-message-wrapper .cookies-content a[data-v-255063ef]:hover:visited {\n      color: white;\n}\n.cookies-message-wrapper button[data-v-255063ef] {\n    margin: 0;\n    padding: 0;\n    -webkit-box-flex: 1;\n        -ms-flex: 1 1 14%;\n            flex: 1 1 14%;\n    border: none;\n    background: none;\n    position: relative;\n    top: -4px;\n    font-size: 30px;\n    line-height: 30px;\n    font-weight: 300;\n    color: rgba(242, 112, 50, 0.5);\n    cursor: pointer;\n    -webkit-transition: color 600ms;\n    transition: color 600ms;\n}\n.cookies-message-wrapper button[data-v-255063ef]:hover {\n      color: rgba(242, 112, 50, 0.9);\n}\n", ""]);
+
+/***/ }),
+/* 38 */
 /***/ (function(module, exports) {
 
 /*
@@ -11313,18 +11337,18 @@ module.exports = function() {
 
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(41)
+__webpack_require__(42)
 
-var Component = __webpack_require__(39)(
+var Component = __webpack_require__(40)(
   /* script */
   __webpack_require__(35),
   /* template */
-  __webpack_require__(40),
+  __webpack_require__(41),
   /* scopeId */
   "data-v-255063ef",
   /* cssModules */
@@ -11351,7 +11375,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports) {
 
 // this module is a runtime utility for cleaner component module output and will
@@ -11408,7 +11432,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -11450,17 +11474,17 @@ if (false) {
 }
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(36);
+var content = __webpack_require__(37);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(42)("68616eb0", content, false);
+var update = __webpack_require__(43)("68616eb0", content, false);
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -11476,7 +11500,7 @@ if(false) {
 }
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -11495,7 +11519,7 @@ if (typeof DEBUG !== 'undefined' && DEBUG) {
   ) }
 }
 
-var listToStyles = __webpack_require__(43)
+var listToStyles = __webpack_require__(44)
 
 /*
 type StyleObject = {
@@ -11697,7 +11721,7 @@ function applyToTag (styleElement, obj) {
 
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports) {
 
 /**
@@ -11730,8 +11754,8 @@ module.exports = function listToStyles (parentId, list) {
 
 
 /***/ }),
-/* 44 */,
-/* 45 */
+/* 45 */,
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(30);
@@ -11740,35 +11764,6 @@ __webpack_require__(34);
 __webpack_require__(31);
 module.exports = __webpack_require__(32);
 
-
-/***/ }),
-/* 46 */,
-/* 47 */,
-/* 48 */,
-/* 49 */,
-/* 50 */,
-/* 51 */
-/***/ (function(module, exports) {
-
-/**
- * Generate a GUID number
- */
-module.exports.generateGUID = function () {
-
-    var dt = new Date().getTime();
-
-    if (window.performance && typeof window.performance.now === "function") {
-        dt += performance.now();
-    }
-
-    var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-        var r = (dt + Math.random() * 16) % 16 | 0;
-        dt = Math.floor(dt / 16);
-        return (c == 'x' ? r : r & 0x3 | 0x8).toString(16);
-    });
-
-    return uuid;
-};
 
 /***/ })
 /******/ ]);

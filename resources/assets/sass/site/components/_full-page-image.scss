@@ -52,6 +52,7 @@
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
-        opacity: .85;
+        opacity: 0;
+        animation: LandingPageFadeIn 2s ease-out 500ms 1 forwards;
     } // eo:landing wrapper
 } // eo:landing wrapper

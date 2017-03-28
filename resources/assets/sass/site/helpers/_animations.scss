@@ -1,0 +1,40 @@
+/**
+ * Simple Fade In with inital delay
+ */
+
+@keyframes FadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+/**
+ * Simple Fade Out with inital delay
+ */
+
+@keyframes FadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+
+/**
+ * landing page background fade effect
+ */
+
+@keyframes LandingPageFadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: .85;
+    }
+}
