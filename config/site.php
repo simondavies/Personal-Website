@@ -27,6 +27,7 @@ return [
         'url' => 'https://plus.google.com/+SimonDaviesOfCourse',
         'analytics' => [
             'code' => 'UA-43259016-1',
+            'optimise' => 'GTM-P49CXDZ',
             'verification_code' => ''
         ]
     ],
