@@ -3,21 +3,15 @@
 use Illuminate\Http\Request;
 
 /**
- *
- * place the api route around a version prefix
- *
+ * Place the api route around a version prefix
  */
-$this->group(['prefix'=>'v1'], function (){
-    /**
-     * Place th epublic facing api routes here.
-     */
-     $this->get('')->uses(function(){
-         dd('dsdddssd');
-     });
+$this->group(['prefix'=>'v1'], function () {
+
+    $this->get('/page/{page}', ['uses'=>'PagesController@page', 'as'=>'api.pages.page']);
      /**
       * Place the protected api routes here.
       */
-    $this->group(['middleware'=>'auth:api'],function(){
+    $this->group(['middleware'=>'auth:api'], function () {
 
 
     });

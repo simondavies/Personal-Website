@@ -26,7 +26,7 @@ class PagesController extends Controller
      */
     public function page(Page $page)
     {
-        dd($page);
+        dd($page->metadata);
         return view('site.pages.base-pages');
     }
 
