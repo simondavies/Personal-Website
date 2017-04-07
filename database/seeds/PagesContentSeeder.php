@@ -19,7 +19,7 @@ class PagesContentSeeder extends Seeder
         DB::table('pages_content')->insert([
             [
                 'page_id' => 1,
-                'version_id' => 1,
+                'revision' => 1,
                 'title' => 'Homepage',
                 'body' => '',
                 'excerpt' => '',
@@ -28,7 +28,7 @@ class PagesContentSeeder extends Seeder
             ],
             [
                 'page_id' => 2,
-                'version_id' => 1,
+                'revision' => 1,
                 'title' => 'Cookies on my Site',
                 'body' => '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, voluptatibus! Cumque natus quas quasi quibusdam, id sint, officia obcaecati eos sapiente libero molestias recusandae, placeat quis esse non cum sit.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, voluptatibus! Cumque natus quas quasi quibusdam, id sint, officia obcaecati eos sapiente libero molestias recusandae, placeat quis esse non cum sit.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, voluptatibus! Cumque natus quas quasi quibusdam, id sint, officia obcaecati eos sapiente libero molestias recusandae, placeat quis esse non cum sit.</p>',
                 'excerpt' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, voluptatibus! Cumque natus quas quasi quibusdam, id...',

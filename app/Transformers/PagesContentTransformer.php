@@ -5,39 +5,31 @@ namespace App\Transformers;
 use League\Fractal\TransformerAbstract;
 
 /**
- *
+ * Pages content tranformer
+ * 
+ * @author Simon Davies <simondavies@live.co.uk>
  */
 class PagesContentTransformer extends TransformerAbstract
 {
-    
-    public function transform($page){
-
-
-        if(count($page) > 0){
-            return [
-                'title' => $page->title,
-                'excerpt' => $page->excerpt,
-                'body' => $page->body,
-                'creation_date' => [
-                    'diffForHumans' => $page->created_at->diffForHumans(),
-                    'readable' => $page->created_at->format('l j F Y')
-                ],
-                'updated_date' => [
-                    'diffForHumans' => ($page->updated_at) 
-                            ? $page->updated_at->diffForHumans() 
-                            : $page->created_at->diffForHumans(),
-                    'readable' => ($page->updated_at) 
-                            ? $page->updated_at->format('l j F Y') 
-                            : $page->created_at->format('l j F Y')
-                ]
-            ];
-        } else {
-            return \Reponse::json([
-                'error'  => [
-                    'message' => 'Could not find the requested page content.'
-                ]
-            ], 404);
-        }
+    /**
+     * Transform the pages content into a readable API format
+     *
+     * @param App\Page $page The requested page content to transform
+     *
+     * @return array
+     */
+    public function transform($page)
+    {
+        return [
+            'revision' => $page->revision,
+            'title' => $page->title,
+            'excerpt' => $page->excerpt,
+            'body' => $page->body,
+            'created_at' => $page->created_at->toIso8601String(),
+            'updated_at' => ($page->updated_at) 
+                        ? $page->updated_at->toIso8601String() 
+                        : $page->created_at->toIso8601String()
+        ];
     }
 
 }

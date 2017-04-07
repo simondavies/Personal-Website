@@ -16,7 +16,7 @@ class CreatePageConentsTable extends Migration
         Schema::create('pages_content', function (Blueprint $table) {
             $table->increments('id');
             $table->integer("page_id")->unsigned()->required();
-            $table->integer("version_id")->nullable();
+            $table->integer("revision")->nullable();
             $table->string("title")->required()->index();
             $table->text("body")->nullable();
             $table->text("excerpt")->nullable();

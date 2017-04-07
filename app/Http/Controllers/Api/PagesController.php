@@ -15,8 +15,8 @@ class PagesController extends Controller
 
     public function page(Page $page){
 
-        $test = $this->repository->requestedPage($page);
-        dd($test);
+        return $this->repository->requestedPage($page);
+
     }
     
 }

@@ -26,9 +26,9 @@ class MetadataSeeder extends Seeder
 
         DB::table('metadata')->insert([
             [
-                'meta_title' => 'Welcome to the site of Davies',
-                'meta_description' => 'The website of simon davies, a show case and...',
-                'meta_keywords' => 'home, homepage, landing, landing page',
+                'title' => 'Welcome to the site of Davies',
+                'description' => 'The website of simon davies, a show case and...',
+                'keywords' => 'home, homepage, landing, landing page',
                 'facebook_img' => $facebook_img,
                 'twitter_img' => $twitter_img,
                 'google_img' => $google_img,
@@ -38,9 +38,9 @@ class MetadataSeeder extends Seeder
                 'created_at' => Carbon::now()
             ],
             [
-                'meta_title' => 'Simon Davies on cookies and why?',
-                'meta_description' => 'Cookies',
-                'meta_keywords' => 'cookies, cookies policy',
+                'title' => 'Simon Davies on cookies and why?',
+                'description' => 'Cookies',
+                'keywords' => 'cookies, cookies policy',
                 'facebook_img' => $facebook_img,
                 'twitter_img' => $twitter_img,
                 'google_img' => $google_img,

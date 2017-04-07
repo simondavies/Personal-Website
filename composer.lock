@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "28971df79e245ade015f737d336179cb",
+    "content-hash": "885e192f4375766d19e3da637154bacc",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -105,6 +105,95 @@
                 "string"
             ],
             "time": "2015-11-06T14:35:42+00:00"
+        },
+        {
+            "name": "dyrynda/laravel-efficient-uuid",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/michaeldyrynda/laravel-efficient-uuid.git",
+                "reference": "4f89dc0e579485e5f30c49b4bead23cff4f6051a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/michaeldyrynda/laravel-efficient-uuid/zipball/4f89dc0e579485e5f30c49b4bead23cff4f6051a",
+                "reference": "4f89dc0e579485e5f30c49b4bead23cff4f6051a",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/container": "5.4.*",
+                "illuminate/database": "5.4.*",
+                "php": ">=5.6.4"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9.4",
+                "phpunit/phpunit": "~5.7"
+            },
+            "type": "utility",
+            "autoload": {
+                "psr-4": {
+                    "Dyrynda\\Database\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dyrynda",
+                    "email": "michael@dyrynda.com.au",
+                    "homepage": "https://dyrynda.com.au"
+                }
+            ],
+            "description": "A package to override Laravel migrations to more efficiently store UUID fields in your database",
+            "time": "2017-03-29T04:55:44+00:00"
+        },
+        {
+            "name": "dyrynda/laravel-model-uuid",
+            "version": "2.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/michaeldyrynda/laravel-model-uuid.git",
+                "reference": "a0699889b0f2d2b0c0065cb4aff649e4dc8d85e5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/michaeldyrynda/laravel-model-uuid/zipball/a0699889b0f2d2b0c0065cb4aff649e4dc8d85e5",
+                "reference": "a0699889b0f2d2b0c0065cb4aff649e4dc8d85e5",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "5.3.*|5.4.*",
+                "illuminate/events": "5.3.*|5.4.*",
+                "php": ">=5.6.4",
+                "ramsey/uuid": "3.6.*"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~5.4"
+            },
+            "suggest": {
+                "dyrynda/laravel-efficient-uuid": "Override Laravel's default query grammar to efficiently store UUIDs."
+            },
+            "type": "utility",
+            "autoload": {
+                "psr-4": {
+                    "Dyrynda\\Database\\Support\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dyrynda",
+                    "email": "michael@dyrynda.com.au",
+                    "homepage": "https://dyrynda.com.au"
+                }
+            ],
+            "description": "This package allows you to easily work with UUIDs in your Laravel models.",
+            "time": "2017-04-05T10:58:56+00:00"
         },
         {
             "name": "erusev/parsedown",
@@ -1760,6 +1849,59 @@
             "time": "2017-03-26T20:37:53+00:00"
         },
         {
+            "name": "shrikeh/teapot",
+            "version": "v2.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/shrikeh/teapot.git",
+                "reference": "a28142273cbd84813355c461a1be3e011c43d6be"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/shrikeh/teapot/zipball/a28142273cbd84813355c461a1be3e011c43d6be",
+                "reference": "a28142273cbd84813355c461a1be3e011c43d6be",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5",
+                "psr/http-message": "^1.0",
+                "teapot/status-code": "^1.0"
+            },
+            "require-dev": {
+                "behat/behat": "^3.2",
+                "bossa/phpspec2-expect": "^2.0",
+                "escapestudios/symfony2-coding-standard": "^2.9",
+                "phpspec/phpspec": "~3.0.0",
+                "squizlabs/php_codesniffer": "^2.7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Teapot\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Barney Hanlon",
+                    "email": "barney@shrikeh.net"
+                },
+                {
+                    "name": "Andreas Möller",
+                    "email": "am@localheinz.com"
+                }
+            ],
+            "description": "PHP HTTP Response Status library",
+            "homepage": "https://shrikeh.github.io/teapot/",
+            "keywords": [
+                "http"
+            ],
+            "time": "2017-02-19T15:30:04+00:00"
+        },
+        {
             "name": "spatie/fractalistic",
             "version": "1.0.2",
             "source": {
@@ -2711,6 +2853,51 @@
                 "dump"
             ],
             "time": "2017-02-20T13:45:48+00:00"
+        },
+        {
+            "name": "teapot/status-code",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/teapot-php/status-code.git",
+                "reference": "8b0a35083e0b2e3da434b9b3372c3665c4d44e09"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/teapot-php/status-code/zipball/8b0a35083e0b2e3da434b9b3372c3665c4d44e09",
+                "reference": "8b0a35083e0b2e3da434b9b3372c3665c4d44e09",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "phpmd/phpmd": ">=1.4.0",
+                "squizlabs/php_codesniffer": "1.*",
+                "theseer/phpdox": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Teapot\\StatusCode\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Barney Hanlon",
+                    "email": "barney@shrikeh.net"
+                }
+            ],
+            "description": "PHP HTTP Response Status code ibrary",
+            "homepage": "http://shrikeh.github.com/teapot",
+            "keywords": [
+                "http"
+            ],
+            "time": "2016-11-15T15:33:05+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",

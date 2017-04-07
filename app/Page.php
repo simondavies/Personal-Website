@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Dyrynda\Database\Support\GeneratesUuid;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -9,12 +10,14 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Page extends Model
 {
+    use GeneratesUuid;
 
     protected $fillable = ['parent_id', 'name', 'slug', 'template', 'status'];
     
     protected $cast = [
         'status' => 'boolean',
-        'parent_id' => 'integer'
+        'parent_id' => 'integer',
+        'uuid' => 'uuid'
     ];
     /**
     * Get the route key for the model.

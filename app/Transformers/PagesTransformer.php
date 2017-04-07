@@ -6,19 +6,21 @@ use League\Fractal\TransformerAbstract;
 use App\Page;
 
 /**
- *
+ * Pages api content tranformer 
+ * 
+ * @author Simon Davies <simondavies@live.co.uk>
  */
 class PagesTransformer extends TransformerAbstract
 {
     /**
-     * What else to include in the response
+     * Assign the associated tranformers to include in the response
      *
      * @var Array
      */
-    protected $availableIncludes = ['metadata'];
+    protected $defaultIncludes = ['content','metadata'];
 
     /**
-     * Return a readable json respnse of the requested content
+     * Transform the page details into a readable API format
      *
      * @param App\Page $page requested page content
      *
@@ -27,29 +29,16 @@ class PagesTransformer extends TransformerAbstract
     public function transform($page)
     {
 
-        if (count($page) > 0) {
-            return [
-                'name' => $page->name,
-                'url' => 'https://simondavies.net/' . $page->slug,
-                'title' => $page->content->title,
-                'excerpt' => $page->content->excerpt,
-                'body' => $page->content->body,
-                'creation_date' => [
-                    'diffForHumans' => $page->content->created_at->diffForHumans(),
-                    'readable' => $page->content->created_at->format('l j F Y')
-                ],
-                'updated_date' => [
-                    'diffForHumans' => ($page->content->updated_at) 
-                            ? $page->content->updated_at->diffForHumans() 
-                            : $page->content->created_at->diffForHumans(),
-                    'readable' => ($page->content->updated_at) 
-                            ? $page->content->updated_at->format('l j F Y') 
-                            : $page->content->created_at->format('l j F Y')
-                ]
-            ];
-        } else {
-            return \Reponse::json(['error'  => ['message' => 'Could not find the requested page.']], 404);
-        }
+        return [
+            'id' => $page->uuid,
+            'name' => $page->name,
+            'uri' => $page->slug,
+            'created_at' => $page->content->created_at->toIso8601String(),
+            'updated_at' => ($page->content->updated_at) 
+                        ? $page->content->updated_at->toIso8601String() 
+                        : $page->content->created_at->toIso8601String()
+        ];
+        
     }
     /**
      * Get the pages metadata details
@@ -62,6 +51,20 @@ class PagesTransformer extends TransformerAbstract
     {
 
         return $this->item($page->metadata, New MetadataTransformer);
+
+    }
+
+    /**
+     * Get the pages metadata details
+     *
+     * @param App\Page $page requested page content
+     *
+     * @return Response
+     */
+    public function includeContent(Page $page)
+    {
+        
+        return $this->item($page->content, New PagesContentTransformer);
 
     }
     
