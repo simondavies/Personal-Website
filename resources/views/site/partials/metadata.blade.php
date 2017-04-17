@@ -4,10 +4,12 @@
 <meta http-equiv="cleartype" content="on">
 <meta name="HandheldFriendly" content="True" />
 <meta name="MobileOptimized" content="320" />
+@empty($browser)
 <!-- If less than IE11 then forward to message -->
 <!--[if lt IE 11]>
    <script type="text/javascript">window.location = "/update";</script>
 <![endif]-->
+@endempty
 <title>{{config('site.title')}}</title>
 
 <meta name="description" content="{{config('site.description')}}">

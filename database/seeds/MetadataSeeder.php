@@ -26,8 +26,8 @@ class MetadataSeeder extends Seeder
 
         DB::table('metadata')->insert([
             [
-                'title' => 'Welcome to the site of Davies',
-                'description' => 'The website of simon davies, a show case and...',
+                'title' => 'Simon Davies - Web Developer / Designer',
+                'description' => 'A developer of the Web, but not the spider kind.',
                 'keywords' => 'home, homepage, landing, landing page',
                 'facebook_img' => $facebook_img,
                 'twitter_img' => $twitter_img,
@@ -38,14 +38,26 @@ class MetadataSeeder extends Seeder
                 'created_at' => Carbon::now()
             ],
             [
-                'title' => 'Simon Davies on cookies and why?',
-                'description' => 'Cookies',
+                'title' => 'Cookies on my site and why?',
+                'description' => 'Cookies are small text files that reside on your computer/mobile, when visiting a website.',
                 'keywords' => 'cookies, cookies policy',
                 'facebook_img' => $facebook_img,
                 'twitter_img' => $twitter_img,
                 'google_img' => $google_img,
                 'instagram_img' => $instagram_img,
                 'metadatable_id' => 2,
+                'metadatable_type' => 'App\Page',
+                'created_at' => Carbon::now()
+            ],
+            [
+                'title' => 'Outdated Brower',
+                'description' => 'Your using an out of date browser, please update to experience my site.',
+                'keywords' => 'update browser, browser, outdated browser',
+                'facebook_img' => $facebook_img,
+                'twitter_img' => $twitter_img,
+                'google_img' => $google_img,
+                'instagram_img' => $instagram_img,
+                'metadatable_id' => 3,
                 'metadatable_type' => 'App\Page',
                 'created_at' => Carbon::now()
             ],

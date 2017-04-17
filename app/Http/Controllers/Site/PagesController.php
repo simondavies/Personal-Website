@@ -26,8 +26,14 @@ class PagesController extends Controller
      */
     public function page(Page $page)
     {
-        dd($page->metadata);
-        return view('site.pages.base-pages');
+        return view('site.pages.base-pages', compact('page'));
+    }
+
+    public function browserUpdate()
+    {
+        $page = Page::whereSlug('update')->first();
+        $browser = true;
+        return view('site.pages.browser-update', compact('page','browser'));
     }
 
     /**

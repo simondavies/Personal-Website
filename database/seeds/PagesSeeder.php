@@ -33,6 +33,14 @@ class PagesSeeder extends Seeder
                 'status' => true,
                 'created_at' => Carbon::now()
             ],
+            [
+                'parent_id' => 0,
+                'name' => 'Browser Update',
+                'slug' => str_slug('update'),
+                'template' => 'base-page',
+                'status' => true,
+                'created_at' => Carbon::now()
+            ],
         ]);
     }
 }
