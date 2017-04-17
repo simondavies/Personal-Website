@@ -77,7 +77,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         "{{config('site.facebook.url')}}",
         "{{config('site.google.url')}}",
         "{{config('site.youtube.url')}}",
-        "{{config('site.stackoverflow.url')}}"
+        "{{config('site.stackoverflow.url')}}",
         "{{config('site.github.url')}}"
     ]
 },
