@@ -11384,7 +11384,13 @@ module.exports.generateGUID = function () {
 };
 
 /***/ }),
-/* 37 */,
+/* 37 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(38)();
+exports.push([module.i, "\n.cookies-message-wrapper {\n  margin: 0 auto;\n  padding: 0 10px;\n  position: fixed;\n  top: 10px;\n  right: 0;\n  z-index: 5000;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  width: auto;\n  max-width: 360px;\n  border-radius: 4px 0 0 4px;\n  overflow: hidden;\n  background-color: rgba(17, 17, 17, 0.6);\n  box-shadow: 0 0 10px rgba(17, 17, 17, 0.9);\n  opacity: 1;\n}\n.cookies-message-wrapper.fade-enter-active {\n    -webkit-transition: opacity 1000ms 1s, right 600ms 1s;\n    transition: opacity 1000ms 1s, right 600ms 1s;\n}\n.cookies-message-wrapper.fade-leave-active {\n    -webkit-transition: opacity 600ms, right 600ms;\n    transition: opacity 600ms, right 600ms;\n}\n.cookies-message-wrapper.fade-enter, .cookies-message-wrapper.fade-leave-to {\n    opacity: 0;\n    right: -360px;\n}\n.cookies-message-wrapper .cookies-content {\n    margin: 0 auto;\n    padding: 10px 10px 10px 10px;\n    -webkit-box-flex: 1;\n        -ms-flex: 1 1 86%;\n            flex: 1 1 86%;\n    color: rgba(255, 255, 255, 0.8);\n    text-align: left;\n    font-size: 12px;\n    line-height: 18px;\n}\n.cookies-message-wrapper .cookies-content a:link,\n    .cookies-message-wrapper .cookies-content a:active,\n    .cookies-message-wrapper .cookies-content a:visited {\n      font-size: inherit;\n      line-height: inherit;\n      color: #f27032;\n}\n.cookies-message-wrapper .cookies-content a:hover,\n    .cookies-message-wrapper .cookies-content a:hover:visited {\n      color: white;\n}\n.cookies-message-wrapper .cookies-options {\n    margin: 0;\n    padding: 0;\n    -webkit-box-flex: 1;\n        -ms-flex: 1 1 14%;\n            flex: 1 1 14%;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n}\n.cookies-message-wrapper .cookies-options button {\n      margin: 0;\n      padding: 0;\n      -webkit-box-flex: 1;\n          -ms-flex: 1 1 auto;\n              flex: 1 1 auto;\n      border: none;\n      background: none;\n      position: relative;\n      width: 100%;\n      height: 32px;\n      font-size: 30px;\n      line-height: 30px;\n      font-weight: 300;\n      color: rgba(242, 112, 50, 0.5);\n      cursor: pointer;\n      outline: none;\n      -webkit-transition: color 600ms;\n      transition: color 600ms;\n}\n.cookies-message-wrapper .cookies-options button.cookies-details {\n        font-size: 12px;\n        line-height: 14px;\n        text-transform: uppercase;\n}\n.cookies-message-wrapper .cookies-options button:hover {\n        color: rgba(242, 112, 50, 0.9);\n}\n.cookies-details-wrapper {\n  margin: 0 auto;\n  padding: 0 10px;\n  position: fixed;\n  top: 0;\n  bottom: 0;\n  right: -53%;\n  z-index: 5000;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: start;\n      -ms-flex-align: start;\n          align-items: flex-start;\n  width: 50%;\n  max-width: 600px;\n  overflow: hidden;\n  background-color: rgba(17, 17, 17, 0.8);\n  box-shadow: 0 0 10px rgba(17, 17, 17, 0.9);\n  opacity: 0;\n  -webkit-transition: opacity 1000ms 1s, right 600ms 1s;\n  transition: opacity 1000ms 1s, right 600ms 1s;\n}\n.cookies-details-wrapper.is-selected {\n    opacity: 1;\n    right: 0;\n    overflow-y: auto;\n}\n@media screen and (max-width: 801px) {\n.cookies-details-wrapper {\n      right: -73%;\n      width: 70%;\n}\n}\n@media screen and (max-width: 601px) {\n.cookies-details-wrapper {\n      right: -100%;\n      width: 94%;\n}\n}\n.cookies-details-wrapper .cookies-details-content {\n    margin: 0 auto;\n    padding: 20px;\n    color: rgba(255, 255, 255, 0.8);\n    text-align: left;\n    font-size: 14px;\n    line-height: 18px;\n}\n.cookies-details-wrapper .cookies-details-content h3 {\n      margin: 0 auto;\n      padding: 0;\n      color: rgba(242, 112, 50, 0.8);\n      text-align: left;\n      font-size: 24px;\n      line-height: 26px;\n}\n@media screen and (max-width: 401px) {\n.cookies-details-wrapper .cookies-details-content h3 {\n          font-size: 18px;\n          line-height: 20px;\n}\n}\n.cookies-details-wrapper .cookies-details-content a:link,\n    .cookies-details-wrapper .cookies-details-content a:active,\n    .cookies-details-wrapper .cookies-details-content a:visited {\n      font-size: inherit;\n      line-height: inherit;\n      color: rgba(242, 112, 50, 0.8);\n}\n.cookies-details-wrapper .cookies-details-content a:hover,\n    .cookies-details-wrapper .cookies-details-content a:hover:visited {\n      color: #f27032;\n}\n.cookies-details-wrapper .cookies-details-content button.close-cookie-details {\n      margin: 0;\n      padding: 0;\n      border: none;\n      background: none;\n      position: absolute;\n      right: 10px;\n      top: 10px;\n      width: 32px;\n      height: 32px;\n      font-size: 30px;\n      line-height: 30px;\n      font-weight: 300;\n      color: rgba(242, 112, 50, 0.5);\n      cursor: pointer;\n      outline: none;\n      -webkit-transition: color 600ms;\n      transition: color 600ms;\n}\n.cookies-details-wrapper .cookies-details-content button.close-cookie-details:hover {\n        color: rgba(242, 112, 50, 0.9);\n}\n", ""]);
+
+/***/ }),
 /* 38 */
 /***/ (function(module, exports) {
 
@@ -11446,7 +11452,7 @@ module.exports = function() {
 
 
 /* styles */
-__webpack_require__(53)
+__webpack_require__(42)
 
 var Component = __webpack_require__(40)(
   /* script */
@@ -11605,7 +11611,32 @@ if (false) {
 }
 
 /***/ }),
-/* 42 */,
+/* 42 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(37);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(43)("a6320ffa", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-255063ef\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./cookies-popup.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-255063ef\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./cookies-popup.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
 /* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11870,44 +11901,6 @@ __webpack_require__(34);
 __webpack_require__(31);
 module.exports = __webpack_require__(32);
 
-
-/***/ }),
-/* 47 */,
-/* 48 */,
-/* 49 */,
-/* 50 */,
-/* 51 */,
-/* 52 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(38)();
-exports.push([module.i, "\n.cookies-message-wrapper {\n  margin: 0 auto;\n  padding: 0 10px;\n  position: fixed;\n  top: 10px;\n  right: 0;\n  z-index: 5000;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  width: auto;\n  max-width: 360px;\n  border-radius: 4px 0 0 4px;\n  overflow: hidden;\n  background-color: rgba(17, 17, 17, 0.6);\n  box-shadow: 0 0 10px rgba(17, 17, 17, 0.9);\n  opacity: 1;\n}\n.cookies-message-wrapper.fade-enter-active {\n    -webkit-transition: opacity 1000ms 1s, right 600ms 1s;\n    transition: opacity 1000ms 1s, right 600ms 1s;\n}\n.cookies-message-wrapper.fade-leave-active {\n    -webkit-transition: opacity 600ms, right 600ms;\n    transition: opacity 600ms, right 600ms;\n}\n.cookies-message-wrapper.fade-enter, .cookies-message-wrapper.fade-leave-to {\n    opacity: 0;\n    right: -360px;\n}\n.cookies-message-wrapper .cookies-content {\n    margin: 0 auto;\n    padding: 10px 10px 10px 10px;\n    -webkit-box-flex: 1;\n        -ms-flex: 1 1 86%;\n            flex: 1 1 86%;\n    color: rgba(255, 255, 255, 0.8);\n    text-align: left;\n    font-size: 12px;\n    line-height: 18px;\n}\n.cookies-message-wrapper .cookies-content a:link,\n    .cookies-message-wrapper .cookies-content a:active,\n    .cookies-message-wrapper .cookies-content a:visited {\n      font-size: inherit;\n      line-height: inherit;\n      color: #f27032;\n}\n.cookies-message-wrapper .cookies-content a:hover,\n    .cookies-message-wrapper .cookies-content a:hover:visited {\n      color: white;\n}\n.cookies-message-wrapper .cookies-options {\n    margin: 0;\n    padding: 0;\n    -webkit-box-flex: 1;\n        -ms-flex: 1 1 14%;\n            flex: 1 1 14%;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n}\n.cookies-message-wrapper .cookies-options button {\n      margin: 0;\n      padding: 0;\n      -webkit-box-flex: 1;\n          -ms-flex: 1 1 auto;\n              flex: 1 1 auto;\n      border: none;\n      background: none;\n      position: relative;\n      width: 100%;\n      height: 32px;\n      font-size: 30px;\n      line-height: 30px;\n      font-weight: 300;\n      color: rgba(242, 112, 50, 0.5);\n      cursor: pointer;\n      outline: none;\n      -webkit-transition: color 600ms;\n      transition: color 600ms;\n}\n.cookies-message-wrapper .cookies-options button.cookies-details {\n        font-size: 12px;\n        line-height: 14px;\n        text-transform: uppercase;\n}\n.cookies-message-wrapper .cookies-options button:hover {\n        color: rgba(242, 112, 50, 0.9);\n}\n.cookies-details-wrapper {\n  margin: 0 auto;\n  padding: 0 10px;\n  position: fixed;\n  top: 0;\n  bottom: 0;\n  right: -53%;\n  z-index: 5000;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: start;\n      -ms-flex-align: start;\n          align-items: flex-start;\n  width: 50%;\n  max-width: 600px;\n  overflow: hidden;\n  background-color: rgba(17, 17, 17, 0.8);\n  box-shadow: 0 0 10px rgba(17, 17, 17, 0.9);\n  opacity: 0;\n  -webkit-transition: opacity 1000ms 1s, right 600ms 1s;\n  transition: opacity 1000ms 1s, right 600ms 1s;\n}\n.cookies-details-wrapper.is-selected {\n    opacity: 1;\n    right: 0;\n    overflow-y: auto;\n}\n@media screen and (max-width: 801px) {\n.cookies-details-wrapper {\n      right: -73%;\n      width: 70%;\n}\n}\n@media screen and (max-width: 601px) {\n.cookies-details-wrapper {\n      right: -100%;\n      width: 94%;\n}\n}\n.cookies-details-wrapper .cookies-details-content {\n    margin: 0 auto;\n    padding: 20px;\n    color: rgba(255, 255, 255, 0.8);\n    text-align: left;\n    font-size: 14px;\n    line-height: 18px;\n}\n.cookies-details-wrapper .cookies-details-content h3 {\n      margin: 0 auto;\n      padding: 0;\n      color: rgba(242, 112, 50, 0.8);\n      text-align: left;\n      font-size: 24px;\n      line-height: 26px;\n}\n@media screen and (max-width: 401px) {\n.cookies-details-wrapper .cookies-details-content h3 {\n          font-size: 18px;\n          line-height: 20px;\n}\n}\n.cookies-details-wrapper .cookies-details-content a:link,\n    .cookies-details-wrapper .cookies-details-content a:active,\n    .cookies-details-wrapper .cookies-details-content a:visited {\n      font-size: inherit;\n      line-height: inherit;\n      color: rgba(242, 112, 50, 0.8);\n}\n.cookies-details-wrapper .cookies-details-content a:hover,\n    .cookies-details-wrapper .cookies-details-content a:hover:visited {\n      color: #f27032;\n}\n.cookies-details-wrapper .cookies-details-content button.close-cookie-details {\n      margin: 0;\n      padding: 0;\n      border: none;\n      background: none;\n      position: absolute;\n      right: 10px;\n      top: 10px;\n      width: 32px;\n      height: 32px;\n      font-size: 30px;\n      line-height: 30px;\n      font-weight: 300;\n      color: rgba(242, 112, 50, 0.5);\n      cursor: pointer;\n      outline: none;\n      -webkit-transition: color 600ms;\n      transition: color 600ms;\n}\n.cookies-details-wrapper .cookies-details-content button.close-cookie-details:hover {\n        color: rgba(242, 112, 50, 0.9);\n}\n", ""]);
-
-/***/ }),
-/* 53 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(52);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(43)("a6320ffa", content, false);
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-255063ef\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./cookies-popup.vue", function() {
-     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-255063ef\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./cookies-popup.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
 
 /***/ })
 /******/ ]);

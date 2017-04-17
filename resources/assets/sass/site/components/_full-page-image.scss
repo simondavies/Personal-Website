@@ -16,13 +16,53 @@
                 @include font-size(50);
                 @include line-height(58);
                 color: rgba($text-colour, .8);
+                opacity: 0;
+                animation: FadeIn 2s ease-out 1.5s 1 forwards;
                 text-shadow: 0px 0px 2px rgba($text-colour, .4);
             }
             h2 {
-                @include font-size(20);
-                @include line-height(20);
+                @include font-size(16);
+                @include line-height(16);
                 color: rgba($text-colour, .6);
+                opacity: 0;
+                animation: FadeIn 1s ease-out 2s 1 forwards;
                 text-shadow: 0px 0px 2px rgba($text-colour, .4);
+            }
+            .construction-msg {
+                padding: 5px 20px;
+                position: absolute;
+                bottom: 20px;
+                border-radius: 2px;
+                text-align: center;
+                font-family: $font-family;
+                @include font-size(16);
+                @include line-height(18);
+                background-color: rgba($text-colour, .8);
+                color: rgba(white, .8);
+                opacity: 0;
+                animation: FadeIn 1s ease-out 4s 1 forwards;
+            }
+            @media screen and (max-width: 719px) {
+                h1 {
+                    @include font-size(30);
+                    @include line-height(38);
+                }
+                h2 {
+                    @include font-size(14);
+                    @include line-height(14);
+                }
+                .construction-msg {
+                    margin: 0 auto;
+                    bottom: 10px;
+                    left: 0;
+                    @include font-size(12);
+                    @include line-height(12);
+                    background: none;
+                    color: rgba($text-colour, .8);
+                    width: 100%;
+                    text-align: center;
+                    animation: FadeIn 1s ease-out 3s 1 forwards;
+                }
             }
         }
     } // eo:landing content
@@ -54,5 +94,9 @@
         background-size: cover;
         opacity: 0;
         animation: LandingPageFadeIn 2s ease-out 500ms 1 forwards;
-    } // eo:landing wrapper
+    } // eo:background wrapper
+    @media screen and (max-width: 719px) {
+        align-items: flex-end;
+        padding-bottom: 30px;
+    }
 } // eo:landing wrapper
