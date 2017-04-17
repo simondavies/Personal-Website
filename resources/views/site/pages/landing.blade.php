@@ -5,7 +5,7 @@
             <div class="site-title-wrapper">
                 <h1>Simon Davies</h1>
                 <h2>Web Developer/Designer</h2>
-                <div class="construction-msg">Site creativity is currently been refurbished...</div>
+                <div class="construction-msg">Site creativity, is currently being refurbished...</div>
             </div>
             @include('site.partials.social-icons',['class' => 'landing'])
         </div><!-- eo:landing-content -->
