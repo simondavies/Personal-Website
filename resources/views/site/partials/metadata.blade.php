@@ -50,6 +50,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta property="fb:admins" content="{{config('site.facebook.admin_id')}}" />
 <meta property="fb:app_id" content="{{config('site.facebook.app_id')}}" />
 
+<meta name="p:domain_verify" content="{{config('site.pinterest.verification_code')}}"/>
+
 <meta name="msvalidate.01" content="{{config('site.microsoft.analytics.verification_code')}}" />
 
 {{-- <link rel="icon" href="/imgs/icons/favicon-16.png" sizes="16x16" type="image/png">

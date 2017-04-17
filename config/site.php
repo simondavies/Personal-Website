@@ -49,6 +49,9 @@ return [
     ],
     'github' => [
         'url' => 'https://github.com/simondavies'
+    ],
+    'pinterest' => [
+        'verification_code' => '176c7291bc01426fb6d1206680213868'
     ]
 
 ];
