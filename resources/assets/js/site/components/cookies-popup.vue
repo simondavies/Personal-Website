@@ -3,7 +3,7 @@
         <transition name="fade">
             <div class="cookies-message-wrapper" v-show="isActive">
                 <div class="cookies-content">
-                    I use cookies on this site. Carry on surfing if you're happy with this, or to view way, click on the details tab on the right.
+                    I use cookies on this site. Carry on surfing if you're happy with this, or select the details tab on the right, to read on.
                 </div>
                 <div class="cookies-options">
                     <button class="close-cookie" aria-label="Close" aria-hidden="true" @click="closeCookiesMessage">&times;</button>
@@ -17,7 +17,7 @@
                 <h3>Cookies On My Site</h3>
                 <button class="close-cookie-details" aria-label="Close" aria-hidden="true" @click="closeCookiesDetails">&times;</button>
             
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse adipisci fuga cumque nobis quisquam autem, vel consectetur, quae nam soluta aliquid earum. Perferendis voluptas reprehenderit quis, nesciunt facere blanditiis pariatur!</p>
+                <div v-html="cookie_copy"></div>
             
             </div>
         </div>
@@ -34,7 +34,9 @@
                 isActive : false,
                 isSelected : false,
                 cookie_name : 'siteCookiesMessage',
-                cookie_value : generateGUID()
+                cookie_value : generateGUID(),
+                cookie_url : 'api/v1/page/cookies',
+                cookie_copy : ''
             }
         },
         mounted() {
@@ -126,7 +128,16 @@
             viewCookiesDetails(){
                 this.isActive = false;
 
-                this.isSelected = true;
+                axios.get(this.cookie_url)
+                    .then((res) => {
+                        
+                        this.isSelected = true;
+
+                        this.cookie_copy = res.data.data.content.data.body;
+                    })
+                    .catch((err) => {
+                        console.error(err);
+                    });
 
             },
             /**
@@ -140,7 +151,7 @@
     }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 
     $orange : #f27032;
     $backgroundColour : #111;
@@ -252,6 +263,15 @@
         &.is-selected {
             opacity : 1;
             right: 0;
+            overflow-y: auto;
+        }
+        @media screen and (max-width: 801px){
+            right: -73%;
+            width: 70%;
+        }
+        @media screen and (max-width: 601px){
+            right: -100%;
+            width: 94%;
         }
         .cookies-details-content {
             margin: 0 auto;
@@ -263,10 +283,25 @@
             h3 {
                 margin: 0 auto;
                 padding: 0;
-                color: rgba(white, .8);
+                color: rgba($orange, .8);
                 text-align: left;
                 font-size: 24px;
                 line-height: 26px;
+                @media screen and (max-width: 401px){
+                    font-size: 18px;
+                    line-height: 20px;
+                }
+            }
+            a:link,
+            a:active,
+            a:visited {
+                font-size: inherit;
+                line-height: inherit;
+                color: rgba($orange,.8);
+            }
+            a:hover,
+            a:hover:visited {
+                color: rgba($orange,1);
             }
             button.close-cookie-details {
                 margin: 0;
@@ -289,17 +324,6 @@
                     color: rgba($orange, .9);
                 }
             }// eo:btn
-            a:link,
-            a:active,
-            a:visited {
-                font-size: inherit;
-                line-height: inherit;
-                color: $orange;
-            }
-            a:hover,
-            a:hover:visited {
-                color: white;
-            }
         }
     } // eo:cookies-details-wrapper
 </style>

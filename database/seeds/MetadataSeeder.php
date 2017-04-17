@@ -14,10 +14,10 @@ class MetadataSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create();
-        $facebook_img = $faker->imageUrl(1200, 630);
-        $twitter_img = $faker->imageUrl(440, 220);
-        $google_img = $faker->imageUrl(497, 373);
-        $instagram_img = $faker->imageUrl(1080, 1080);
+        $facebook_img = 'simon-davies-facebook-share-image.jpg';
+        $twitter_img = 'simon-davies-twitter-share-image.jpg';
+        $google_img = 'simon-davies-google-plus-share-image.jpg';
+        $instagram_img = 'simon-davies-instagram-share-image.jpg';
 
         DB::table('metadata')->delete();
 

@@ -10,19 +10,6 @@ import CookiesPopup from './components/cookies-popup';
 
         components: {
             CookiesPopup
-        },
-
-        data: {
-
-        },
-
-        mounted() {
-            console.log('Landin App mounted');
-        },
-
-        methods: {
-
         }
-
     });
 })();

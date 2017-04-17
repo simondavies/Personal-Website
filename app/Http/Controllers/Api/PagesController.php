@@ -9,11 +9,15 @@ use App\Page;
 
 class PagesController extends Controller
 {
-    function __construct(){
+    function __construct()
+    {
+    
         $this->repository = new PagesRepository();
+    
     }
 
-    public function page(Page $page){
+    public function page(Page $page)
+    {
 
         return $this->repository->requestedPage($page);
 

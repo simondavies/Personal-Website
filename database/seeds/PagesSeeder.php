@@ -18,8 +18,6 @@ class PagesSeeder extends Seeder
 
         DB::table('pages')->insert([
             [
-                //'uuid' => pack("h*", str_replace('-', '', '8c837d49-e061-4169-806a-8bc54ddb9bba')),
-                'uuid' => '24f6c768-6276-4f34-bfa1-e7c8ba9514ea',
                 'parent_id' => 0,
                 'name' => 'Homepage',
                 'slug' => str_slug(''),
@@ -28,8 +26,6 @@ class PagesSeeder extends Seeder
                 'created_at' => Carbon::now()
             ],
             [
-                'uuid' => '55635d83-10bc-424f-bf3f-395ea7a5b47F',
-                //'uuid' => pack("h*", str_replace('-', '', '24f6c768-6276-4f34-bfa1-e7c8ba9514ea')),
                 'parent_id' => 0,
                 'name' => 'Cookies',
                 'slug' => str_slug('cookies'),
