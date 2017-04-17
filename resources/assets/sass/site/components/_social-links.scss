@@ -30,6 +30,13 @@
             transition: fill $transitionTime;
             text-shadow: 0px 0px 2px rgba($text-colour, .4);
         }
+        @media screen and (max-width: 719px) {
+            @for $i from 1 through $totalSocialIcons {
+                &:nth-child(#{$i}) {
+                    animation: FadeInAndUp 800ms ease-out #{$i/$totalSocialIcons+2}s 1 forwards;
+                }
+            }
+        }
     }
     a:hover,
     a:hover:visited {

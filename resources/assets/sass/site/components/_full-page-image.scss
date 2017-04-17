@@ -95,8 +95,8 @@
         opacity: 0;
         animation: LandingPageFadeIn 2s ease-out 500ms 1 forwards;
     } // eo:background wrapper
-    @media screen and (max-width: 719px) {
-        align-items: flex-end;
-        padding-bottom: 30px;
-    }
+    // @media screen and (max-width: 719px) {
+    //     align-items: flex-end;
+    //     padding-bottom: 30px;
+    // }
 } // eo:landing wrapper
