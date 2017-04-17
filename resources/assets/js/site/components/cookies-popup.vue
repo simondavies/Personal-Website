@@ -1,10 +1,27 @@
 <template>
-    <transition name="fade">
-        <div class="cookies-message-wrapper" v-show="isActive">
-            <div class="cookies-content">I use cookies on this site. Carry on surfing if you're happy with this, or visit my cookies page for <a class="" href="/cookies">more details</a>.</div>
-            <button id="close-cookie" aria-label="Close" aria-hidden="true" @click="closeCookiesMessage">&times;</button>
+    <div>
+        <transition name="fade">
+            <div class="cookies-message-wrapper" v-show="isActive">
+                <div class="cookies-content">
+                    I use cookies on this site. Carry on surfing if you're happy with this, or select the details tab on the right, to read on.
+                </div>
+                <div class="cookies-options">
+                    <button class="close-cookie" aria-label="Close" aria-hidden="true" @click="closeCookiesMessage">&times;</button>
+                    <button class="cookies-details" aria-label="Open" aria-hidden="true" @click="viewCookiesDetails">Details</button>
+                </div>
+            </div>
+        </transition>
+        <div class="cookies-details-wrapper" :class="{ 'is-selected' : isSelected }">
+            <div class="cookies-details-content">
+
+                <h3>Cookies On My Site</h3>
+                <button class="close-cookie-details" aria-label="Close" aria-hidden="true" @click="closeCookiesDetails">&times;</button>
+            
+                <div v-html="cookie_copy"></div>
+            
+            </div>
         </div>
-    </transition>
+    </div>
 </template>
 
 <script>
@@ -15,8 +32,11 @@
         data() {
             return {
                 isActive : false,
+                isSelected : false,
                 cookie_name : 'siteCookiesMessage',
-                cookie_value : generateGUID()
+                cookie_value : generateGUID(),
+                cookie_url : 'api/v1/page/cookies',
+                cookie_copy : ''
             }
         },
         mounted() {
@@ -102,14 +122,45 @@
                 document.cookie = this.cookie_name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;'
 
             },
+            /**
+             * lets display the cookies details sa the user has requested to see them
+             */
+            viewCookiesDetails(){
+                this.isActive = false;
+
+                axios.get(this.cookie_url)
+                    .then((res) => {
+                        
+                        this.isSelected = true;
+
+                        this.cookie_copy = res.data.data.content.data.body;
+                    })
+                    .catch((err) => {
+                        console.error(err);
+                    });
+
+            },
+            /**
+             * close the cookeis details pop toUTCString
+             */
+            closeCookiesDetails(){
+                this.isSelected = false;
+
+            }
         }
     }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+
+    $orange : #f27032;
+    $backgroundColour : #111;
+    $popOutWidth : 360px;
+    $detailsWidth : 600;
+
     .cookies-message-wrapper {
         margin: 0 auto;
-        padding: 0;
+        padding: 0 10px;
         position: fixed;
         top: 10px;
         right: 0;
@@ -118,11 +169,11 @@
         justify-content: center;
         align-items: center;
         width: auto;
-        max-width: 340px;
+        max-width: $popOutWidth;
         border-radius: 4px 0 0 4px;
         overflow: hidden;
-        background-color: rgba(17,17,17, .6);
-        box-shadow: 0 0 10px rgba(17,17,17, .9);
+        background-color: rgba($backgroundColour, .6);
+        box-shadow: 0 0 10px rgba($backgroundColour, .9);
         opacity : 1;
         &.fade-enter-active{
             transition: opacity 1000ms 1s, right 600ms 1s;
@@ -133,11 +184,11 @@
         &.fade-enter, 
         &.fade-leave-to {
             opacity: 0;
-            right: -360px
+            right: -$popOutWidth
         }
         .cookies-content {
             margin: 0 auto;
-            padding: 10px 20px;
+            padding: 10px 10px 10px 10px;
             flex: 1 1 86%;
             color: rgba(white, .8);
             text-align: left;
@@ -148,30 +199,131 @@
             a:visited {
                 font-size: inherit;
                 line-height: inherit;
-                color: #f27032;
+                color: $orange;
             }
             a:hover,
             a:hover:visited {
                 color: white;
             }
         }
-        button {
+        .cookies-options {
             margin: 0;
             padding: 0;
             flex: 1 1 14%;
-            border: none;
-            background: none;
-            position: relative;
-            top: -4px;
-            font-size: 30px;
-            line-height: 30px;
-            font-weight: 300;
-            color: rgba(#f27032, .5);
-            cursor: pointer;
-            transition: color 600ms;
-            &:hover {
-                color: rgba(#f27032, .9);
-            }
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            button {
+                margin: 0;
+                padding: 0;
+                flex: 1 1 auto;
+                border: none;
+                background: none;
+                position: relative;
+                //top: -4px;
+                width: 100%;
+                height: 32px;
+                font-size: 30px;
+                line-height: 30px;
+                font-weight: 300;
+                color: rgba($orange, .5);
+                cursor: pointer;
+                outline: none;
+                transition: color 600ms;
+                &.cookies-details {
+                    font-size: 12px;
+                    line-height: 14px;
+                    text-transform: uppercase;
+                }
+                &:hover {
+                    color: rgba($orange, .9);
+                }
+            }// eo:btn
+        }// eo:cookies-options
+    }// eo:cookies-message-wrapper
+    .cookies-details-wrapper {
+        margin: 0 auto;
+        padding: 0 10px;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: -53%;
+        z-index: 5000;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        width: 50%;
+        max-width: #{$detailsWidth}px;
+        overflow: hidden;
+        background-color: rgba($backgroundColour, .8);
+        box-shadow: 0 0 10px rgba($backgroundColour, .9);
+        opacity : 0;
+        transition: opacity 1000ms 1s, right 600ms 1s;
+        &.is-selected {
+            opacity : 1;
+            right: 0;
+            overflow-y: auto;
         }
-    }
+        @media screen and (max-width: 801px){
+            right: -73%;
+            width: 70%;
+        }
+        @media screen and (max-width: 601px){
+            right: -100%;
+            width: 94%;
+        }
+        .cookies-details-content {
+            margin: 0 auto;
+            padding: 20px;
+            color: rgba(white, .8);
+            text-align: left;
+            font-size: 14px;
+            line-height: 18px;
+            h3 {
+                margin: 0 auto;
+                padding: 0;
+                color: rgba($orange, .8);
+                text-align: left;
+                font-size: 24px;
+                line-height: 26px;
+                @media screen and (max-width: 401px){
+                    font-size: 18px;
+                    line-height: 20px;
+                }
+            }
+            a:link,
+            a:active,
+            a:visited {
+                font-size: inherit;
+                line-height: inherit;
+                color: rgba($orange,.8);
+            }
+            a:hover,
+            a:hover:visited {
+                color: rgba($orange,1);
+            }
+            button.close-cookie-details {
+                margin: 0;
+                padding: 0;
+                border: none;
+                background: none;
+                position: absolute;
+                right: 10px;
+                top: 10px;
+                width: 32px;
+                height: 32px;
+                font-size: 30px;
+                line-height: 30px;
+                font-weight: 300;
+                color: rgba($orange, .5);
+                cursor: pointer;
+                outline: none;
+                transition: color 600ms;
+                &:hover {
+                    color: rgba($orange, .9);
+                }
+            }// eo:btn
+        }
+    } // eo:cookies-details-wrapper
 </style>
